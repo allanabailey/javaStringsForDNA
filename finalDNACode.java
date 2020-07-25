@@ -1,14 +1,19 @@
 package StringsThirdAssignment;
+//https://www.dukelearntoprogram.com//course2/files.php
 import edu.duke.StorageResource;
 import edu.duke.FileResource;
+//https://www.dukelearntoprogram.com/course2/doc/
 
 /**
- * Write a description of Part1 here.
+ * The full code that will allow someone to take a DNA string, identify valid genes within it, process them,
+ * collect them into a StorageResource and provide the user with the ability to identify and manipulate genes.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Allana Bailey
+ * @version 1
  */
-public class Part1 {
+public class finalDNACode {
+    
+    //find location of the first stop codon after the start codon.
     public int findStopCodon(String dnaStr, int startIndex, String stopCodon) {
         int currIndex = dnaStr.indexOf(stopCodon, startIndex+3);
         while(currIndex != -1) {
@@ -22,6 +27,7 @@ public class Part1 {
         return dnaStr.length();
     }
     
+    //print out the location of the first stop codon based on the 3 valid options.
     public void testFindStopCodon() {
         String test1 = "ATGXGTTTGTACTGATAACG";
         System.out.println("Index of first stop codon is: " + findStopCodon(test1, 0, "TAA"));
@@ -29,10 +35,9 @@ public class Part1 {
         System.out.println("Index of first stop codon is: " + findStopCodon(test2, 0, "TGA"));
         String test3 = "ATGXGTTTGTACTAGTGGACG";
         System.out.println("Index of first stop codon is: " + findStopCodon(test3, 0, "TAG"));
-        String test4 = "ATGXGTTTGTACTGTGGACG";
-        System.out.println("Index of first stop codon is: " + findStopCodon(test4, 0, "TAA"));
     }
     
+    //return the valid gene found in a dna string.
     public String findGene(String dna, int where) {
         int startIndex = dna.indexOf("ATG", where);
         if(startIndex == -1) {
@@ -66,7 +71,6 @@ public class Part1 {
         } else {
             System.out.println(test1);
         }
-         
         //ATG and one valid stop codon (TAA)
         String test2 = "ATGCCGGTTTAATAG";
         System.out.println("Test 2");
@@ -75,7 +79,6 @@ public class Part1 {
         } else {
             System.out.println(test2);
         }
-        
         //ATG and multiple stop codons
         String test3 = "ATGGCCCGTTGACCGTGATAG";
         System.out.println("Test 3");
@@ -84,7 +87,6 @@ public class Part1 {
         } else {
             System.out.println(test3);
         }
-        
         //ATG with no stop codon
         String test4 = "ATGCGCTGCCTTGTTGAC";
         System.out.println("Test 4"); 
@@ -95,6 +97,7 @@ public class Part1 {
         }
     }
     
+    //print all of the genes found in a string of dna.
     public void printAllGenes(String dna) {
         int startIndex = 0;
         while(true) {
@@ -107,6 +110,7 @@ public class Part1 {
         }
     }
     
+    //collect all genes found within a dna string into a StorageResource
     public StorageResource getAllGenes(String dna) {
         StorageResource geneList = new StorageResource();
         int startIndex = 0;
@@ -129,6 +133,7 @@ public class Part1 {
         }
     }
     
+    //calculate the C-G-ratio in a dna string.
     public double cgRatio(String dna) {
         dna = dna.toUpperCase();
         int cgCount = 0;
@@ -155,6 +160,7 @@ public class Part1 {
         System.out.println(testcg);
     }
     
+    //count how many times "CTG" appears in a string of dna.
     public int countCTG(String dna) {
         int index = dna.indexOf("CTG");
         int count = 0;
@@ -178,6 +184,7 @@ public class Part1 {
         System.out.println("There are " + countCTG(test1) + " occurrences of CTG in the dna.");
     }
     
+    //for a collection of strings, collect, process and record genes within the dna.
     public void processGenes(StorageResource sr) {
         int longerThanSixty = 0;
         int highCGRatio = 0;
