@@ -2,12 +2,13 @@ package StringsClass1;
 
 
 /**
- * Write a description of Part1 here.
+ * A simple method to identify genes with a starting codon of "ATG" and a
+ * stop codon of "TAA" in a long DNA string.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Allana Bailey
+ * @version 1
  */
-public class Part1 {
+public class findGeneSimple {
     public String findSimpleGene(String dna) {
         int startIndex = dna.indexOf("ATG");
         if(startIndex == -1) {
