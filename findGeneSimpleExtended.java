@@ -2,19 +2,15 @@ package StringsClass1;
 
 
 /**
- * Write a description of Part1a here.
+ * An extension to findGeneSimple whereby it checks that the gene would be valid - i.e difference between start and stop codon is a multiple of 3.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Allana Bailey
+ * @version 1
  */
-public class Part1a {
+public class findGeneSimpleExtended {
     public String findGene(String dna) {
-        //Find first occurrence of "ATG" and call its index "startIndex"
         int startIndex = dna.indexOf("ATG");
-        //Find the "TAA" starting from (startIndex + £) and call it currIndex.
         int currIndex = dna.indexOf("TAA", startIndex + 3);
-        //Need to add check to check is AGT actually present.
-        //As long as currIndex is not equal to negative 1
         while(currIndex != -1) {
             //Check is currIndex - startIndex is a multiple of 3.
             if ((currIndex - startIndex) % 3 == 0) {
