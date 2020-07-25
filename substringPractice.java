@@ -2,12 +2,13 @@ package StringsClass1;
 
 
 /**
- * Write a description of Part3 here.
+ * Practicing methods of finding strings in strings (substrings).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Allana Bailey 
+ * @version 1
  */
-public class Part3 {
+public class substringPractice {
+    //does string a occur two or more times in string b?
     public boolean twoOccurrences(String stringa, String stringb) {
         int count = 0;
         int fromIndex = 0;
@@ -20,7 +21,6 @@ public class Part3 {
         }
         return false;
     }
-    
     public void testing() {
         String stringa1 = "by";
         String stringb1 = "A story by Abby Long";
@@ -38,7 +38,7 @@ public class Part3 {
         System.out.println("Does " + stringa3 + " appear in " + stringb3 + " at least twice?");
         System.out.println(twoOccurrences(stringa3, stringb3));
     }
-    
+    //print the part of the string following a given substring.
     public String lastPart(String stringa, String stringb) {
         int index = stringb.indexOf(stringa);
         if(index == -1) {
